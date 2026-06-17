@@ -25,6 +25,7 @@
   ig.href = "https://instagram.com/" + CONFIG.instagram;
   ig.textContent = "@" + CONFIG.instagram;
   document.getElementById("whatsGeral").href = linkWhats(CONFIG.whatsapp, CONFIG.mensagemGeral);
+  document.getElementById("whatsFloat").href = linkWhats(CONFIG.whatsapp, CONFIG.mensagemGeral);
 
   // ---- cria um card de produto ----
   function criarCard(prod) {
@@ -100,7 +101,7 @@
     } else if (prod.destaque) {
       const s = document.createElement("div");
       s.className = "selo";
-      s.textContent = "Último par";
+      s.textContent = "Últimas unidades";
       foto.appendChild(s);
     }
   }
