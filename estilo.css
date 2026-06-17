@@ -8,8 +8,8 @@
   --bg:#F8F6F3; --alt:#EFE8DF; --card:#FFFCF8;
   --text:#2F2925; --muted:#766E66; --ouro:#B88A44; --ouro-claro:#C9A567;
   --hover:#E3D9CC; --line:rgba(47,41,37,0.12);
-  --serif:"Playfair Display",Georgia,serif;
-  --sans:"Inter","Helvetica Neue",Arial,sans-serif;
+  --serif:"Manrope","Helvetica Neue",Arial,sans-serif;
+  --sans:"Manrope","Helvetica Neue",Arial,sans-serif;
   --maxw:1200px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -18,7 +18,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);
   line-height:1.6;-webkit-font-smoothing:antialiased;font-weight:400}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
-h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.15;letter-spacing:.01em}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.13;letter-spacing:-.02em}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
 .eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--ouro);font-weight:600}
 .btn{display:inline-block;padding:15px 30px;border-radius:14px;font-size:14px;
