@@ -5,9 +5,9 @@
    =========================================================== */
 
 :root{
-  --bg:#F8F6F3; --alt:#EFE8DF; --card:#FFFCF8;
-  --text:#2F2925; --muted:#766E66; --ouro:#B88A44; --ouro-claro:#C9A567;
-  --hover:#E3D9CC; --line:rgba(47,41,37,0.12);
+  --bg:#FFFFFF; --alt:#F4F4F4; --card:#FFFFFF;
+  --text:#141414; --muted:#6B6B6B; --ouro:#CE1A21; --ouro-claro:#A8141A;
+  --hover:#F0F0F0; --line:rgba(0,0,0,0.12);
   --serif:"Manrope","Helvetica Neue",Arial,sans-serif;
   --sans:"Manrope","Helvetica Neue",Arial,sans-serif;
   --maxw:1200px;
@@ -32,7 +32,15 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.13;letter-spacin
 .topo{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s ease;
   border-bottom:1px solid transparent}
 .topo .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
-.topo.solid{background:rgba(248,246,243,.92);backdrop-filter:blur(10px);border-bottom-color:var(--line)}
+.topo{background:var(--ouro);box-shadow:0 2px 12px -4px rgba(0,0,0,.3)}
+.topo.solid{background:var(--ouro)}
+.topo .logo-marca{color:#fff}
+.topo .logo-marca b{color:#fff}
+.topo .nav a{color:rgba(255,255,255,.85)}
+.topo .nav a:hover{color:#fff}
+.topo-wa{border-color:rgba(255,255,255,.5)!important;color:#fff!important}
+.topo-wa:hover{background:#fff!important;color:var(--ouro)!important;border-color:#fff!important}
+.menu-btn{color:#fff}
 .logo-marca{font-family:var(--serif);font-size:23px;letter-spacing:.22em;font-weight:600}
 .logo-marca b{color:var(--ouro);font-weight:600}
 .nav{display:flex;gap:34px;font-size:13.5px;letter-spacing:.04em;color:var(--text)}
@@ -44,11 +52,11 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.13;letter-spacin
 .menu-btn{display:none;background:none;border:none;font-size:24px;color:var(--text);cursor:pointer}
 
 /* ---------- Hero ---------- */
-.hero{padding:150px 0 90px}
+.hero{padding:160px 0 100px}
 .hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
 .hero-txt .eyebrow{margin-bottom:22px;display:block}
-.hero-txt h1{font-size:54px;letter-spacing:-.01em}
-.hero-txt p{margin:26px 0 36px;font-size:16.5px;color:var(--muted);max-width:440px}
+.hero-txt h1{font-size:66px;line-height:1.02;letter-spacing:-.02em}
+.hero-txt p{margin:30px 0 40px;font-size:19px;color:var(--muted);max-width:500px}
 .hero-acoes{display:flex;gap:14px;flex-wrap:wrap}
 .hero-img{position:relative;border-radius:18px;overflow:hidden;background:var(--alt);
   aspect-ratio:4/5;box-shadow:0 30px 60px -30px rgba(47,41,37,.25)}
@@ -187,7 +195,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.13;letter-spacin
 /* ---------- Responsivo ---------- */
 @media (max-width:920px){
   .hero .wrap{grid-template-columns:1fr;gap:36px}
-  .hero-txt h1{font-size:40px}
+  .hero-txt h1{font-size:46px}
   .hero{padding:120px 0 60px}
   .inst .wrap{grid-template-columns:1fr;gap:32px;padding:60px 28px}
   .cats{grid-template-columns:repeat(2,1fr)}
@@ -202,7 +210,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.13;letter-spacin
 }
 @media (max-width:560px){
   .wrap{padding:0 18px}
-  .hero-txt h1{font-size:33px}
+  .hero-txt h1{font-size:36px}
   .sec{padding:60px 0}.sec-head h2{font-size:28px}
   .cats{grid-template-columns:repeat(2,1fr)}
   .grade{grid-template-columns:repeat(2,1fr);gap:12px}
