@@ -14,7 +14,7 @@
     const m = (p.modelo || "").toLowerCase();
     if (/tênis|tenis/.test(m)) return "Tênis";
     if (/rasteira/.test(m)) return "Rasteiras";
-    if (/scarpin|sapatilha|mocassim|slingback/.test(m)) return "Sapatos";
+    if (/scarpin|sapatilha|mocassim|slingback|mule/.test(m)) return "Sapatos";
     return "Sandálias";
   }
 
@@ -112,12 +112,12 @@
     if(prod.preco==null||prod.preco===""){ precos='<span class="preco preco-consulta">Sob consulta</span>'; }
     else { precos='<span class="preco">'+reais(prod.preco)+"</span>"; if(prod.precoDe) precos='<span class="preco-de">'+reais(prod.precoDe)+"</span>"+precos; }
     let botao;
-    if(prod.disponivel){ var msg=CONFIG.mensagemWhatsapp.replace("{marca}",prod.marca).replace("{modelo}",prod.modelo);
+    if(prod.disponivel){ var msg=CONFIG.mensagemWhatsapp.replace("{marca}",prod.marca).replace("{modelo}",prod.modelo).replace("{codigo}",prod.codigo||"");
       botao='<a class="btn-whats" target="_blank" rel="noopener" href="'+linkWhats(CONFIG.whatsapp,msg)+'">Quero esse</a>'; }
     else { botao='<span class="btn-whats desativado">Esgotado</span>'; }
     corpo.innerHTML='<span class="card-marca">'+prod.marca+"</span>"
       +'<h2 class="card-modelo">'+prod.modelo+"</h2>"
-      +'<span class="card-tam">Tamanho 35 · original e novo</span>'
+      +'<span class="card-tam">'+(prod.codigo?"Cód. "+prod.codigo+" · ":"")+'Tamanho 35 · original e novo</span>'
       +'<div class="precos">'+precos+"</div>"+botao;
     card.appendChild(foto); card.appendChild(corpo);
     return card;
