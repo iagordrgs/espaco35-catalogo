@@ -68,6 +68,6 @@ const PRODUTOS = [
   { codigo: "E35-061", marca: "Mississipi", modelo: "Tênis Rosê Casual", descricao: "Tênis rosê casual. Fofo e confortável.", preco: 69.90, precoDe: 100.00, imagens: ["espaco35-63.jpg", "espaco35-70.jpg"], disponivel: true, destaque: true },
   { codigo: "E35-062", marca: "Mississipi", modelo: "Tênis Bege Matelassê", descricao: "Tênis bege matelassê de plataforma. Tendência.", preco: 69.90, precoDe: 100.00, imagens: ["espaco35-64.jpg", "espaco35-71.jpg"], disponivel: true, destaque: true },
   { codigo: "E35-063", marca: "Mississipi", modelo: "Tênis Off-White Plataforma", descricao: "Tênis off-white de plataforma. Estiloso e leve.", preco: 69.90, precoDe: 100.00, imagens: ["espaco35-65.jpg"], disponivel: true, destaque: false },
-  { codigo: "E35-064", marca: "Mississipi", modelo: "Mule Off-White Tiras Cruzadas", descricao: "Mule off-white de tiras cruzadas. Modelo novo e original.", preco: 69.90, precoDe: 100.00, imagens: ["espaco35-74.jpg"], disponivel: true, destaque: false },
+  { codigo: "E35-064", marca: "Campesí", modelo: "Mule Off-White Tiras Cruzadas", descricao: "Mule off-white de tiras cruzadas. Modelo novo e original.", preco: 69.90, precoDe: 100.00, imagens: ["espaco35-74.jpg"], disponivel: true, destaque: false },
   { codigo: "E35-065", marca: "Mississipi", modelo: "Tênis Branco Corações", descricao: "Tênis branco com costura de corações e solado bege. Confortável pro dia a dia.", preco: 69.90, precoDe: 100.00, imagens: ["espaco35-72.jpg"], disponivel: true, destaque: false },
 ];
