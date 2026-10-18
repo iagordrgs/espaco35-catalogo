@@ -108,9 +108,13 @@
     selos(foto,prod);
 
     const corpo=document.createElement("div"); corpo.className="card-corpo";
-    let precos;
-    if(prod.preco==null||prod.preco===""){ precos='<span class="preco preco-consulta">Sob consulta</span>'; }
-    else { precos='<span class="preco">'+reais(prod.preco)+"</span>"; if(prod.precoDe) precos='<span class="preco-de">'+reais(prod.precoDe)+"</span>"+precos; }
+    // Preço é opcional: sem `preco` no produtos.js o card não mostra valor nenhum (catálogo sem preços, por enquanto).
+    let precos="";
+    if(prod.preco!=null&&prod.preco!==""){
+      precos='<span class="preco">'+reais(prod.preco)+"</span>";
+      if(prod.precoDe) precos='<span class="preco-de">'+reais(prod.precoDe)+"</span>"+precos;
+      precos='<div class="precos">'+precos+"</div>";
+    }
     let botao;
     if(prod.disponivel){ var msg=CONFIG.mensagemWhatsapp.replace("{marca}",prod.marca).replace("{modelo}",prod.modelo).replace("{codigo}",prod.codigo||"");
       botao='<a class="btn-whats" target="_blank" rel="noopener" href="'+linkWhats(CONFIG.whatsapp,msg)+'">Quero esse</a>'; }
@@ -118,7 +122,7 @@
     corpo.innerHTML='<span class="card-marca">'+prod.marca+"</span>"
       +'<h2 class="card-modelo">'+prod.modelo+"</h2>"
       +'<span class="card-tam">'+(prod.codigo?"Cód. "+prod.codigo+" · ":"")+'Tamanho 35 · original e novo</span>'
-      +'<div class="precos">'+precos+"</div>"+botao;
+      +precos+botao;
     card.appendChild(foto); card.appendChild(corpo);
     return card;
   }

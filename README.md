@@ -47,13 +47,13 @@ Exemplo de um par:
   marca: "Mississipi",
   modelo: "Scarpin Nude",
   descricao: "Salto fino, atemporal e elegante.",
-  preco: 189.90,
-  precoDe: 259.90,        // ou null para não mostrar preço antigo
   imagem: "mississipi-scarpin-nude.jpg",
   disponivel: true,       // false = aparece como ESGOTADO
   destaque: true,         // true = mostra o selo "Último par"
 },
 ```
+
+**Preço:** desde 18/10/2026 o catálogo está **sem preços**: os pares não têm o campo `preco` e o card não mostra valor. Para voltar a mostrar, acrescente em cada par o campo `preco` com o valor (e `precoDe`, se quiser o valor riscado). Antes de voltar com o "de", leia o PLANEJAMENTO (§8): preço "de" fictício é problema.
 
 **Vendeu um par?** Mude `disponivel: true` para `disponivel: false` (ele vai pro fim com selo "Esgotado") ou apague o bloco inteiro.
 
