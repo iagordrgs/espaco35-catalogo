@@ -2,8 +2,8 @@
 //  ESPAÇO 35 — CATÁLOGO DE PRODUTOS
 //  Cada par pode ter VÁRIAS imagens (carrossel): imagens: ["a.jpg","b.jpg"]
 //  A 1ª imagem é a capa. Edite marca/modelo/destaque normalmente.
-//  Preço é OPCIONAL: sem o campo `preco`, o card não mostra valor (o catálogo está assim, sem preços, por enquanto).
-//  Para voltar a mostrar, veja a seção "Preço" do README.md.
+//  Preço: vem da tabela por categoria no config.js (varejo e atacado). Só ponha `preco`, `precoDe`
+//  ou `precoAtacado` aqui se um par específico tiver preço diferente da tabela.
 // ============================================================
 
 const PRODUTOS = [

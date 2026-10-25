@@ -108,12 +108,16 @@
     selos(foto,prod);
 
     const corpo=document.createElement("div"); corpo.className="card-corpo";
-    // Preço é opcional: sem `preco` no produtos.js o card não mostra valor nenhum (catálogo sem preços, por enquanto).
+    // Preço vem da tabela por categoria no config.js (rasteira usa o preço de sandália).
+    // Um par pode ter preço próprio: `preco`/`precoDe`/`precoAtacado` no produtos.js passam na frente da tabela.
     let precos="";
-    if(prod.preco!=null&&prod.preco!==""){
-      precos='<span class="preco">'+reais(prod.preco)+"</span>";
-      if(prod.precoDe) precos='<span class="preco-de">'+reais(prod.precoDe)+"</span>"+precos;
-      precos='<div class="precos">'+precos+"</div>";
+    const tipo=tipoDe(prod), tabela=(CONFIG.precos||{})[tipo==="Rasteiras"?"Sandálias":tipo];
+    const varejo=prod.preco!=null&&prod.preco!==""?prod.preco:tabela&&tabela.varejo;
+    const de=prod.precoDe||(tabela&&tabela.de);
+    const atacado=prod.precoAtacado||(tabela&&tabela.atacado);
+    if(varejo!=null){
+      precos='<div class="precos">'+(de?'<span class="preco-de">'+reais(de)+"</span>":"")+'<span class="preco">'+reais(varejo)+'</span><span class="preco-rotulo">varejo</span></div>';
+      if(atacado) precos+='<div class="preco-atacado"><span>Atacado · '+(CONFIG.atacadoMinimo||6)+'+ peças</span><strong>'+reais(atacado)+"</strong></div>";
     }
     let botao;
     if(prod.disponivel){ var msg=CONFIG.mensagemWhatsapp.replace("{marca}",prod.marca).replace("{modelo}",prod.modelo).replace("{codigo}",prod.codigo||"");

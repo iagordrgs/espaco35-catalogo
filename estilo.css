@@ -128,9 +128,13 @@ h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.13;letter-spacin
 .card-marca{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ouro);font-weight:600}
 .card-modelo{font-family:var(--serif);font-size:17px;font-weight:500;margin-top:5px;line-height:1.25}
 .card-tam{font-size:11px;color:var(--muted);margin-top:8px;letter-spacing:.04em}
-.precos{margin-top:12px;display:flex;align-items:baseline;gap:9px}
+.precos{margin-top:12px;display:flex;flex-wrap:wrap;align-items:baseline;column-gap:9px;row-gap:2px}
+.preco,.preco-de,.preco-atacado strong,.preco-atacado span{white-space:nowrap}
 .preco-de{font-size:13px;color:var(--muted);text-decoration:line-through}
 .preco{font-size:18px;font-weight:600;color:var(--text);font-family:var(--serif)}
+.preco-rotulo{font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.preco-atacado{margin-top:6px;display:flex;flex-direction:column;align-items:flex-start;gap:1px;padding:7px 10px;border:1px dashed var(--ouro, #D6B07A);border-radius:6px;font-size:12px;color:var(--muted)}
+.preco-atacado strong{font-size:15px;color:var(--text);font-family:var(--serif)}
 .preco-consulta{font-size:15px;font-weight:600;color:var(--ouro)}
 .btn-whats{margin-top:16px;display:block;text-align:center;background:var(--text);color:var(--bg);
   font-weight:600;font-size:13px;letter-spacing:.05em;padding:12px;border-radius:12px;transition:.25s}

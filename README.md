@@ -53,7 +53,7 @@ Exemplo de um par:
 },
 ```
 
-**Preço:** desde 18/10/2026 o catálogo está **sem preços**: os pares não têm o campo `preco` e o card não mostra valor. Para voltar a mostrar, acrescente em cada par o campo `preco` com o valor (e `precoDe`, se quiser o valor riscado). Antes de voltar com o "de", leia o PLANEJAMENTO (§8): preço "de" fictício é problema.
+**Preço:** desde 24/10/2026 o catálogo mostra **varejo e atacado** por categoria, numa tabela só em `config.js` (`precos` e `atacadoMinimo`), com os mesmos valores do site. Este link não é público: envie só para clientes e revendedoras (a página está escondida do Google). Um par com preço diferente pode ter `preco`, `precoDe` ou `precoAtacado` no `produtos.js`. Atenção ao "de": leia o PLANEJAMENTO (§8), preço "de" fictício é problema.
 
 **Vendeu um par?** Mude `disponivel: true` para `disponivel: false` (ele vai pro fim com selo "Esgotado") ou apague o bloco inteiro.
 

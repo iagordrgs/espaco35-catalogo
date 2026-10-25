@@ -1,0 +1,3 @@
+# Netlify: avisa os buscadores para não indexar nada deste catálogo (inclusive fotos).
+/*
+  X-Robots-Tag: noindex, nofollow, noarchive
