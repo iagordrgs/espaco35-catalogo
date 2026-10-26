@@ -21,9 +21,9 @@ const CONFIG = {
   // Este catálogo mostra varejo E atacado: envie o link só para clientes e revendedoras.
   atacadoMinimo: 6,
   precos: {
-    "Tênis":     { de: 229.90, varejo: 129.90, atacado: 109.90 },
-    "Sapatos":   { de: 199.90, varejo: 119.90, atacado: 99.90 },
-    "Sandálias": { de: 189.90, varejo: 99.90,  atacado: 89.90 },  // rasteiras também usam este preço
+    "Tênis":     { de: 229.90, varejo: 119.90, atacado: 109.90 },
+    "Sapatos":   { de: 199.90, varejo: 109.90, atacado: 99.90 },
+    "Sandálias": { de: 189.90, varejo: 89.90,  atacado: 79.90 },  // rasteiras também usam este preço
   },
   cidade: "Fortaleza – CE",
 };
