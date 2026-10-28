@@ -26,4 +26,8 @@ const CONFIG = {
     "Sandálias": { de: 189.90, varejo: 89.90,  atacado: 79.90 },  // rasteiras também usam este preço
   },
   cidade: "Fortaleza – CE",
+
+  // Estoque vivo: o catálogo pergunta ao site qual par está vendido ou reservado no painel
+  // e esconde o botão "Quero esse" sozinho. Se o endereço falhar, vale só o `disponivel` do produtos.js.
+  estoqueUrl: "https://espaco35.vercel.app/api/estoque",
 };

@@ -73,12 +73,13 @@
   function selos(foto, prod){
     foto.querySelectorAll(".selo,.selo-esgotado").forEach(function(e){ e.remove(); });
     if(!prod.disponivel){ var s=document.createElement("div"); s.className="selo-esgotado"; s.textContent="Esgotado"; foto.appendChild(s); }
+    else if(prod.reservado){ var r=document.createElement("div"); r.className="selo-esgotado reservado"; r.textContent="Reservado"; foto.appendChild(r); }
     else if(prod.destaque){ var s2=document.createElement("div"); s2.className="selo"; s2.textContent="Últimas unidades"; foto.appendChild(s2); }
   }
 
   function criarCard(prod){
     const card=document.createElement("article");
-    card.className="card"+(prod.disponivel?"":" esgotado");
+    card.className="card"+(prod.disponivel?"":" esgotado")+(prod.disponivel&&prod.reservado?" reservado":"");
     const foto=document.createElement("div"); foto.className="card-foto";
     const imgs=imagensDe(prod); let idx=0;
     if(imgs.length){
@@ -120,7 +121,8 @@
       if(atacado) precos+='<div class="preco-atacado"><span>Atacado · '+(CONFIG.atacadoMinimo||6)+'+ peças</span><strong>'+reais(atacado)+"</strong></div>";
     }
     let botao;
-    if(prod.disponivel){ var msg=CONFIG.mensagemWhatsapp.replace("{marca}",prod.marca).replace("{modelo}",prod.modelo).replace("{codigo}",prod.codigo||"");
+    if(prod.disponivel&&prod.reservado){ botao='<span class="btn-whats desativado">Reservado</span>'; }
+    else if(prod.disponivel){ var msg=CONFIG.mensagemWhatsapp.replace("{marca}",prod.marca).replace("{modelo}",prod.modelo).replace("{codigo}",prod.codigo||"");
       botao='<a class="btn-whats" target="_blank" rel="noopener" href="'+linkWhats(CONFIG.whatsapp,msg)+'">Quero esse</a>'; }
     else { botao='<span class="btn-whats desativado">Esgotado</span>'; }
     corpo.innerHTML='<span class="card-marca">'+prod.marca+"</span>"
@@ -131,11 +133,32 @@
     return card;
   }
 
+  let filtroAtual="Tudo";
+  // ordem: disponíveis, depois reservados, esgotados por último
+  function peso(p){ return !p.disponivel ? 2 : (p.reservado ? 1 : 0); }
   function render(tipoSel){
+    filtroAtual=tipoSel;
     grade.innerHTML="";
     const lista = (tipoSel==="Tudo") ? PRODUTOS : PRODUTOS.filter(function(p){ return tipoDe(p)===tipoSel; });
-    lista.slice().sort(function(a,b){ return (b.disponivel-a.disponivel); }).forEach(function(p){ grade.appendChild(criarCard(p)); });
+    lista.slice().sort(function(a,b){ return peso(a)-peso(b); }).forEach(function(p){ grade.appendChild(criarCard(p)); });
     vazio.hidden = lista.length>0;
+  }
+
+  // ---- Estoque vivo (painel da loja, via site) ----
+  // Resposta: { "E35-010": "vendido", "E35-023": "reservado" }. Quem não aparece está disponível.
+  function aplicarEstoque(mapa){
+    PRODUTOS.forEach(function(p){
+      var s = mapa[p.codigo];
+      p.reservado = (s==="reservado");
+      if(s==="vendido") p.disponivel=false;
+    });
+    render(filtroAtual);
+  }
+  function carregarEstoque(){
+    if(!CONFIG.estoqueUrl || !window.fetch) return;
+    fetch(CONFIG.estoqueUrl, {cache:"no-store"}).then(function(r){ return r.ok ? r.json() : null; })
+      .then(function(mapa){ if(mapa && typeof mapa==="object") aplicarEstoque(mapa); })
+      .catch(function(){ /* sem internet ou site fora: fica o produtos.js */ });
   }
   function setFiltro(tipo){
     filtros.querySelectorAll(".chip").forEach(function(c){ c.classList.toggle("ativo", c.dataset.tipo===tipo); });
@@ -158,4 +181,7 @@
 
   montarFiltros();
   render("Tudo");
+  carregarEstoque();
+  // volta à aba depois de um tempo: confere de novo (um par pode ter sido vendido enquanto isso)
+  document.addEventListener("visibilitychange", function(){ if(!document.hidden) carregarEstoque(); });
 })();

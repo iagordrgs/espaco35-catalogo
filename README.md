@@ -55,7 +55,7 @@ Exemplo de um par:
 
 **Preço:** desde 24/10/2026 o catálogo mostra **varejo e atacado** por categoria, numa tabela só em `config.js` (`precos` e `atacadoMinimo`), com os mesmos valores do site. Este link não é público: envie só para clientes e revendedoras (a página está escondida do Google). Um par com preço diferente pode ter `preco`, `precoDe` ou `precoAtacado` no `produtos.js`. Atenção ao "de": leia o PLANEJAMENTO (§8), preço "de" fictício é problema.
 
-**Vendeu um par?** Mude `disponivel: true` para `disponivel: false` (ele vai pro fim com selo "Esgotado") ou apague o bloco inteiro.
+**Vendeu um par?** Desde 28/10/2026 o catálogo lê o estoque do painel da loja sozinho: ao abrir, ele consulta `https://espaco35.vercel.app/api/estoque` (endereço em `config.js`, `estoqueUrl`) e marca como **Esgotado** o par vendido e como **Reservado** o par segurado para uma cliente (site ou painel). Não precisa mexer no `produtos.js`. Se o site estiver fora do ar, vale o `disponivel` daqui, então mantenha `disponivel: false` só para par que saiu de vez do estoque.
 
 ### Dicas das fotos
 - Fundo neutro (preto ou off-white), boa luz, par sozinho.
